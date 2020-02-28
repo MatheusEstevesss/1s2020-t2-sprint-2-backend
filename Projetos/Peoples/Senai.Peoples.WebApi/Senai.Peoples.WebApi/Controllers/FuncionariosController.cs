@@ -9,10 +9,10 @@ using Senai.Peoples.WebApi.Interfaces;
 using Senai.Peoples.WebApi.Repositories;
 
 namespace Senai.Peoples.WebApi.Controllers
-{
-    [Produces("application/json")]
+{ [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+   
     public class FuncionariosController : ControllerBase
     {
         private IFuncionariosRepository funcionarioRepository { get; set; }
