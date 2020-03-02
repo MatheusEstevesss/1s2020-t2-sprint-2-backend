@@ -56,5 +56,13 @@ namespace Senai.Peoples.WebApi.Controllers
                 return BadRequest(e);
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete (int id)
+        {
+            tipoUsuarioRepository.Deletar(id);
+
+            return Ok();
+        }
     }
 }

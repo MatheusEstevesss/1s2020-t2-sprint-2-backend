@@ -10,7 +10,8 @@ namespace Senai.Peoples.WebApi.Repositories
 {
     public class FuncionariosRepository : IFuncionariosRepository
     {
-        string connectionString = "Data Source=DEV12\\SQLEXPRESS; initial catalog=M_Peoples; user Id=sa; pwd=sa@132;";        
+        string connectionString = "Data Source=DSK-PCH-HD_0001\\MSSQLSERVER01; initial catalog=M_Peoples; Integrated Security= true;";
+        //string connectionString = "Data Source=DEV12\\SQLEXPRESS; initial catalog=M_Peoples; user Id=sa; pwd=sa@132;";        
 
         public List<FuncionariosDomain> Listar()
         {
@@ -72,6 +73,7 @@ namespace Senai.Peoples.WebApi.Repositories
                 con.Open();
 
                 SqlDataReader rdr;
+
                 using (SqlCommand cmd = new SqlCommand(queryGetById, con))
                 {
                     cmd.Parameters.AddWithValue("@ID", id);

@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Senai.Peoples.WebApi.Interfaces
 {
-    interface ITipoUsuarioRepository
+    interface IUsuariosRepository
     {
-        List<TipoUsuarioDomain> Listar();
+        List<UsuarioDomain> Listar();
 
-        TipoUsuarioDomain GetById(int id);
+        void Cadastrar(UsuarioDomain usuarios);
 
-        void Atualizar(int id, TipoUsuarioDomain tipoUsuario);
+        UsuarioDomain GetById(int id);
 
         void Deletar(int id);
+
+        void Atualizar(int id, UsuarioDomain usuarios);
     }
 }

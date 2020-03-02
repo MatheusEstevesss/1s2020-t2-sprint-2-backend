@@ -10,8 +10,9 @@ namespace Senai.Peoples.WebApi.Repositories
 {
     public class TipoUsuarioRepository : ITipoUsuarioRepository
     {
-        string connectionString = "Data Source=DEV12\\SQLEXPRESS; initial catalog=M_Peoples; user Id=sa; pwd=sa@132;";
-        
+        string connectionString = "Data Source=DSK-PCH-HD_0001\\MSSQLSERVER01; initial catalog=M_Peoples; Integrated Security= true;";
+        //string connectionString = "Data Source=DEV12\\SQLEXPRESS; initial catalog=M_Peoples; user Id=sa; pwd=sa@132;";
+
         public List<TipoUsuarioDomain> Listar()
         {
             List<TipoUsuarioDomain> tiposUsuario = new List<TipoUsuarioDomain>();
@@ -84,6 +85,23 @@ namespace Senai.Peoples.WebApi.Repositories
                 {
                     cmd.Parameters.AddWithValue("@ID", id);
                     cmd.Parameters.AddWithValue("@Titulo", tipoUsuario.Titulo);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Deletar(int id)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string queryDelete = "DELETE FROM TipoUsuarios WHERE IdTipoUsuario = @ID";
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
 
                     con.Open();
 
