@@ -9,5 +9,13 @@ namespace senai.InLock.WebApi.DataBaseFirst.Interfaces
     interface IEstudioRepository
     {
         List<Estudio> Listar();
+
+        void Cadastrar(Estudio novoEstudio);
+
+        Estudio BuscarPorId(int id);
+
+        void Deletar(int id);
+
+        void Atualizar(int id, Estudio putEstudio);
     }
 }
